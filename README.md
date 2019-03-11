@@ -11,7 +11,7 @@ python online_search.py
 
 After that enter your password and press Enter. The program will display your password SHA1-hash and the quantity of hits. 
 
-A hit means that your password is included in leaked credentials --> **you should change your password!**
+A hit means that your password is included in leaked credentials --> **you should change your password!** For further information check https://haveibeenpwned.com/
 
 To exit the program simply press Enter without entering a password.
 ## Requirements 
