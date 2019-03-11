@@ -6,12 +6,12 @@ import requests
 
 if __name__ == "__main__":
     while True:
-        test_password = getpass.getpass('Passwort eingeben:')
+        test_password = getpass.getpass('Enter password:')
         if not test_password:
             break
         test_hash = hashlib.sha1(test_password.encode()).hexdigest().upper()
         test_prefix = test_hash[:5]
-        print("Über das Internet übertragen wird: {}".format(test_prefix))
+        print("Transmit hashed value over Internet: {}".format(test_prefix))
         result = requests.get('https://api.pwnedpasswords.com/range/{}'.format(test_prefix))
         num_hits = 0
         for line in result.text.split('\r\n'):
@@ -19,4 +19,4 @@ if __name__ == "__main__":
             if test_hash[5:] == partial_hash:
                 num_hits = count
                 break
-        print("Das Passwort wurde {}-mal gefunden".format(num_hits))
+        print("The password has been found {} times".format(num_hits))
